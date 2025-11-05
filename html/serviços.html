@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site de Entregadores — Serviços</title>
+ <link rel="stylesheet" href="../css/serviços.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo" aria-label="Espaço para logo"><img id="a" src="../loo]go.jpeg"></div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <h2>Nossos Serviços</h2>
+    <p>O cliente nos informa o horário de coleta e de entrega para maior comodidade.</p>
+    <p>Seguimos a seguinte tabela de preços:</p>
+    <div class="image-space"><img id="b" src="../tabela.jpg"></div>
+
+    <h3>Equipe de Entregadores</h3>
+    <table>
+      <thead>
+        <tr><th>Nome</th><th>Disponibilidade</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Samuel</td><td>Integral</td></tr>
+        <tr><td>Leandro</td><td>Integral</td></tr>
+        <tr><td>Leonardo</td><td>Integral</td></tr>
+        <tr><td>Tique</td><td>Integral</td></tr>
+        <tr><td>Adriano</td><td>Integral</td></tr>
+      </tbody>
+    </table>
+<p>Se </p>
+    <div class="calc-box">
+      <h3>Calcular custo da corrida</h3>
+      <label for="distancia">Distância em km:</label>
+      <input type="number" id="distancia" min="0" step="0.1" placeholder="Ex: 5.5">
+      <p id="resultado">Valor total: R$ 0,00</p>
+    </div>
+
+    <div class="links">
+    <a class="btn" href="index.html">Voltar à tela inicial</a>
+    <a class="btn" href="cadastro.html">Ir para página de cadastro</a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      © <span data-js-year></span> • Super express
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza automaticamente o ano
+    document.querySelector('[data-js-year]').textContent = new Date().getFullYear();
+
+    // Cálculo do valor da corrida
+    const inputDist = document.getElementById('distancia');
+    const resultado = document.getElementById('resultado');
+    const precoKm = 2.6;
+    inputDist.addEventListener('input', ()=>{
+      const dist = parseFloat(inputDist.value);
+      if(isNaN(dist) || dist < 0){
+        resultado.textContent = 'Valor total: R$ 0,00';
+        return;
+      }
+      const total = dist * precoKm;
+      resultado.textContent = `Valor total: R$ ${total.toFixed(2)}`;
+    });
+  </script>
+</body>
+</html>

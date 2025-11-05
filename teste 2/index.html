@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site de Entregadores — Serviços</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo" aria-label="Espaço para logo">
+        <img id="a" src="logo.jpeg" alt="Logo">
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <h2>Nossos Serviços</h2>
+    <p>O cliente nos informa o horário de coleta e de entrega para maior comodidade.</p>
+    <p>Seguimos a seguinte tabela de preços:</p>
+
+    <!-- TABELA DE PREÇOS FEITA À MÃO -->
+    <table class="tabela-manual">
+      <thead>
+        <tr>
+          <th>Distância (km)</th>
+          <th>Tempo estimado</th>
+          <th>Preço (R$)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Até 5 km</td><td>10 - 15 min</td><td>R$ 10,00</td></tr>
+        <tr><td>De 6 km a 10 km</td><td>15 - 25 min</td><td>R$ 18,00</td></tr>
+        <tr><td>De 11 km a 20 km</td><td>25 - 40 min</td><td>R$ 30,00</td></tr>
+        <tr><td>De 21 km a 30 km</td><td>40 - 55 min</td><td>R$ 45,00</td></tr>
+        <tr><td>Acima de 30 km</td><td>+1h</td><td>R$ 2,60 por km</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Equipe de Entregadores</h3>
+    <table class="tabela-manual">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Disponibilidade</th>
+          <th>Veículo</th>
+          <th>Área de atuação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Samuel</td><td>Integral</td><td>Moto</td><td>Centro e Água Verde</td></tr>
+        <tr><td>Leandro</td><td>Integral</td><td>Moto</td><td>Boqueirão e Hauer</td></tr>
+        <tr><td>Leonardo</td><td>Integral</td><td>Bicicleta</td><td>Centro e Mercês</td></tr>
+        <tr><td>Tique</td><td>Integral</td><td>Moto</td><td>Pinheirinho e Portão</td></tr>
+        <tr><td>Adriano</td><td>Integral</td><td>Carro</td><td>Santa Felicidade e CIC</td></tr>
+      </tbody>
+    </table>
+
+    <div class="calc-box">
+      <h3>Calcular custo da corrida</h3>
+
+      <label for="coleta">Endereço de coleta:</label>
+      <input type="text" id="coleta" placeholder="Ex: Rua XV de Novembro, Curitiba">
+
+      <label for="entrega">Endereço de entrega:</label>
+      <input type="text" id="entrega" placeholder="Ex: Rua Marechal Floriano, Curitiba">
+
+      <button class="btn" id="calcular">Calcular valor</button>
+      <p id="resultado">Valor total: R$ 0,00</p>
+      <p id="distanciaTexto" class="muted"></p>
+    </div>
+
+    <div class="links">
+      <a class="btn" href="index.html">Voltar à tela inicial</a>
+      <a class="btn" href="cadastro.html">Ir para página de cadastro</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      © <span data-js-year></span> • Super express
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Google Maps API -->
+  <script async
+    src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_AQUI&libraries=places">
+  </script>
+</body>
+</html>
