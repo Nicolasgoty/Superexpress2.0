@@ -3,94 +3,89 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Site de Entregadores — Serviços</title>
+  <title>Serviços — Super Express</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="container header-inner">
-      <div class="logo" aria-label="Espaço para logo">
-        <img id="a" src="logo.jpeg" alt="Logo">
-      </div>
+      <div class="logo" aria-label="Logo">🚚</div>
+      <h1>Super Express — Serviços</h1>
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="container">
     <h2>Nossos Serviços</h2>
-    <p>O cliente nos informa o horário de coleta e de entrega para maior comodidade.</p>
-    <p>Seguimos a seguinte tabela de preços:</p>
 
-    <!-- TABELA DE PREÇOS FEITA À MÃO -->
+    <!-- Tabela de preços (feita à mão) -->
     <table class="tabela-manual">
       <thead>
-        <tr>
-          <th>Distância (km)</th>
-          <th>Tempo estimado</th>
-          <th>Preço (R$)</th>
-        </tr>
+        <tr><th>Distância (km)</th><th>Tempo estimado</th><th>Preço (R$)</th></tr>
       </thead>
       <tbody>
-        <tr><td>Até 5 km</td><td>10 - 15 min</td><td>R$ 10,00</td></tr>
-        <tr><td>De 6 km a 10 km</td><td>15 - 25 min</td><td>R$ 18,00</td></tr>
-        <tr><td>De 11 km a 20 km</td><td>25 - 40 min</td><td>R$ 30,00</td></tr>
-        <tr><td>De 21 km a 30 km</td><td>40 - 55 min</td><td>R$ 45,00</td></tr>
-        <tr><td>Acima de 30 km</td><td>+1h</td><td>R$ 2,60 por km</td></tr>
+        <tr><td>Até 5</td><td>10–15 min</td><td>R$ 10,00</td></tr>
+        <tr><td>6–10</td><td>15–25 min</td><td>R$ 18,00</td></tr>
+        <tr><td>11–20</td><td>25–40 min</td><td>R$ 30,00</td></tr>
+        <tr><td>21–30</td><td>40–55 min</td><td>R$ 45,00</td></tr>
+        <tr><td>Acima de 30</td><td>+1h</td><td>R$ 2,60/km</td></tr>
       </tbody>
     </table>
 
     <h3>Equipe de Entregadores</h3>
     <table class="tabela-manual">
       <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Disponibilidade</th>
-          <th>Veículo</th>
-          <th>Área de atuação</th>
-        </tr>
+        <tr><th>Nome</th><th>Disponibilidade</th><th>Veículo</th><th>Área</th></tr>
       </thead>
       <tbody>
-        <tr><td>Samuel</td><td>Integral</td><td>Moto</td><td>Centro e Água Verde</td></tr>
-        <tr><td>Leandro</td><td>Integral</td><td>Moto</td><td>Boqueirão e Hauer</td></tr>
-        <tr><td>Leonardo</td><td>Integral</td><td>Bicicleta</td><td>Centro e Mercês</td></tr>
-        <tr><td>Tique</td><td>Integral</td><td>Moto</td><td>Pinheirinho e Portão</td></tr>
-        <tr><td>Adriano</td><td>Integral</td><td>Carro</td><td>Santa Felicidade e CIC</td></tr>
+        <tr><td>Samuel</td><td>Integral</td><td>Moto</td><td>Centro / Água Verde</td></tr>
+        <tr><td>Leandro</td><td>Integral</td><td>Moto</td><td>Boqueirão / Hauer</td></tr>
+        <tr><td>Leonardo</td><td>Integral</td><td>Bicicleta</td><td>Centro / Mercês</td></tr>
+        <tr><td>Tique</td><td>Integral</td><td>Moto</td><td>Pinheirinho / Portão</td></tr>
+        <tr><td>Adriano</td><td>Integral</td><td>Carro</td><td>Santa Felicidade / CIC</td></tr>
       </tbody>
     </table>
 
     <div class="calc-box">
-      <h3>Calcular custo da corrida</h3>
+      <h3>Calcular valor da corrida</h3>
 
-      <label for="coleta">Endereço de coleta:</label>
-      <input type="text" id="coleta" placeholder="Ex: Rua XV de Novembro, Curitiba">
+      <label for="coleta">Endereço de coleta (com número):</label>
+      <input type="text" id="coleta" placeholder="Ex: Rua XV de Novembro, 123, Curitiba">
 
-      <label for="entrega">Endereço de entrega:</label>
-      <input type="text" id="entrega" placeholder="Ex: Rua Marechal Floriano, Curitiba">
+      <label for="entrega">Endereço de entrega (com número):</label>
+      <input type="text" id="entrega" placeholder="Ex: Av. Marechal Floriano, 456, Curitiba">
 
-      <button class="btn" id="calcular">Calcular valor</button>
-      <p id="resultado">Valor total: R$ 0,00</p>
+      <div class="row">
+        <button class="btn" id="calcular">Calcular valor</button>
+        <div id="loading" class="loading hidden" aria-hidden="true">Calculando…</div>
+      </div>
+
       <p id="distanciaTexto" class="muted"></p>
+      <p id="resultado">Valor total: R$ 0,00</p>
+
+      <p class="muted small">Se o Google Maps não estiver disponível, você pode digitar manualmente o número de km no campo abaixo:</p>
+      <label for="distanciaManual">Distância (km) — fallback:</label>
+      <input type="number" id="distanciaManual" min="0" step="0.1" placeholder="Ex: 5.5">
+      <button class="btn" id="aplicarManual">Aplicar distância manual</button>
     </div>
+
+    <div id="map" class="mapbox" aria-hidden="true"></div>
 
     <div class="links">
       <a class="btn" href="index.html">Voltar à tela inicial</a>
-      <a class="btn" href="cadastro.html">Ir para página de cadastro</a>
+      <a class="btn" href="cadastro.html">Ir para cadastro</a>
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
-      © <span data-js-year></span> • Super express
+      © <span data-js-year></span> • Super Express
     </div>
   </footer>
 
   <script src="script.js"></script>
-
-  <!-- Google Maps API -->
-  <script async
-    src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_AQUI&libraries=places">
+  <!-- Substitua SUA_CHAVE_AQUI pela sua API Key do Google Maps. Se não tiver, a página ainda funcionará parcialmente. -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_AQUI&libraries=places&callback=initMap">
   </script>
 </body>
 </html>

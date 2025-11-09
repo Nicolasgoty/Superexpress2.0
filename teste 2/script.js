@@ -1,35 +1,24 @@
-// Atualiza automaticamente o ano
-document.querySelector('[data-js-year]').textContent = new Date().getFullYear();
-
+// Atualiza ano (se existir)
+try {
+  const yearEl = document.querySelector('[data-js-year]');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+} catch (e) { /* ignore */ }
+// Config
 const precoKm = 2.6;
 const resultado = document.getElementById('resultado');
 const distanciaTexto = document.getElementById('distanciaTexto');
-
-document.getElementById('calcular').addEventListener('click', () => {
-  const coleta = document.getElementById('coleta').value.trim();
-  const entrega = document.getElementById('entrega').value.trim();
-
-  if (!coleta || !entrega) {
-    alert('Por favor, preencha os endereços de coleta e entrega.');
-    return;
-  }
-
-  const service = new google.maps.DistanceMatrixService();
-  service.getDistanceMatrix({
-    origins: [coleta],
-    destinations: [entrega],
-    travelMode: 'DRIVING',
-    unitSystem: google.maps.UnitSystem.METRIC
-  }, (response, status) => {
-    if (status !== 'OK') {
-      alert('Erro ao calcular distância. Verifique os endereços.');
-      return;
-    }
-
-    const distance = response.rows[0].elements[0].distance.value / 1000;
-    const total = distance * precoKm;
-
-    resultado.textContent = `Valor total: R$ ${total.toFixed(2)}`;
-    distanciaTexto.textContent = `Distância estimada: ${distance.toFixed(2)} km`;
-  });
-});
+const btnCalcular = document.getElementById('calcular');
+const loadingEl = document.getElementById('loading');
+const distanciaManualInput = document.getElementById('distanciaManual');
+const btnAplicarManual = document.getElementById('aplicarManual');
+let map = null;
+let directionsService = null;
+let directionsRenderer = null;
+let apiAvailable = false; // Flag para rastrear se API carregou
+// util
+function setLoading(on) {
+  if (!loadingEl || !btnCalcular) return;
+  loadingEl.classList.toggle('hidden', !on);
+  btnCalcular.disabled = on;
+}
+function formatBRL(v){ return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v); }
