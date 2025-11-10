@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site de Entregadores — Página Inicial</title>
+  <meta name="description" content="Contrate corridas com facilidade. Entregadores rápidos e confiáveis." />
+</head>
+<link rel="stylesheet" href="css/sstyle.css">
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner" role="banner">
+      <div class="logo" aria-label="Espaço para logo"><img src="loo]go.jpeg"></div>
+      <div class="brand" aria-live="polite">
+        <h1>Bem-vindo ao nosso site</h1>
+        <small>Entregas ágeis, seguras e perto de você</small>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container" id="conteudo-principal">
+    <section class="hero" aria-labelledby="intro-title">
+      <div>
+        <span class="pill" aria-hidden="true">Novo • Simples • Rápido</span>
+        <h2 id="intro-title">Contrate uma corrida com muito mais facilidade</h2>
+        <p>Em poucos cliques, você solicita um entregador para levar seu pedido até onde precisar. Nossa plataforma conecta você ao entregador mais próximo, reduzindo o tempo de espera e garantindo um serviço confiável.</p>
+        
+        <div class="termos">
+          <label for="aceite">Aceita os termos de uso e serviços? <button onclick="location.href='termos.html'">Veja os termos</button></label>
+          <div>
+            <input type="radio" name="termos" id="sim" value="sim"> <label for="sim">Sim</label>
+            <input type="radio" name="termos" id="nao" value="nao"> <label for="nao">Não</label>
+          </div>
+        </div>
+
+        <a class="btn" href="html/serviços.html" id="btnServicos">Ver serviços</a>
+      </div>
+
+      <div class="card" aria-label="Mapa do Google">
+        <div class="map-wrap">
+          <iframe 
+            title="Mapa - área de atendimento"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.228151364452!2d-49.2507921!3d-25.3971725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce7a186f32f9d%3A0x3bbdc6761369c799!2sSuper%20Express%20Rafael%20Motoboy!5e0!3m2!1spt-BR!2sbr!4v1756861251386!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="features" aria-label="Diferenciais">
+          <div class="feature"><h4>Pagamento fácil</h4><p>Pix, cartão ou dinheiro — você escolhe.</p></div>
+          <div class="feature"><h4>Entrega rastreável</h4><p>Acompanhe o status em tempo real.</p></div>
+          <div class="feature"><h4>Atendimento regional</h4><p>Priorizamos entregadores próximos de você.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container footer-inner">
+      <span id="copyright">© <span data-js-year></span> • Super express</span>
+      <a href="#conteudo-principal" class="pill" aria-label="Voltar ao topo">Topo ↑</a>
+    </div>
+  </footer>
+
+  <script src="../script/script.js">
+    
+  </script>
+</body>
+</html>

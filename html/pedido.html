@@ -4,8 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pedido</title>
-  <link rel="stylesheet" href="../css/style.css">
- 
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <!-- HEADER -->
@@ -17,13 +16,14 @@
 
   <!-- MAIN -->
   <main class="container">
-    <h2>Cadastro</h2>
     <form id="formCadastro" action="https://formspree.io/f/mjkaeabd" method="POST">
-      <label for="nome">horário:</label>
+ 
+      <label for="telefone">Local de coleta:</label>
+      <input type="tel" id="telefone" name="telefone" required>
+
+           <label for="nome">horário de coleta:</label>
       <input type="text" id="nome" name="nome" required>
 
-      <label for="telefone">Local de retirada</label>
-      <input type="tel" id="telefone" name="telefone" required>
 
       <label for="endereco">Endereço de entrega:</label>
       <input type="text" id="endereco" name="endereco" required>
@@ -34,17 +34,18 @@
         <option>Pix</option>
         <option>Cartão de crédito</option>
         <option>Cartão de débito</option>
-        <option>Dinheiro será pago na entrega</option>
+        <option>Dinheiro será entrege na entrega</option>
       </select>
 
-      <P>Para mais informações ou pedidos, entrar em contato com 99654-1714</P>
+      <button class="btn" type="submit">Finalizar</button>
+      <P>Para mais informações ou pedidos, entrar em contato com 99654-1714.</P>
     </form>
 
     <p id="mensagem" class="msg"></p>
 
     <div class="links">
-      <a class="btn" href="index.html">Ir para a tela inicial</a>
-      <a class="btn" href="servicos.html">Ir para página de serviço</a>
+      <a class="btn" href="../index.html">Ir para a tela inicial</a>
+      <a class="btn" href="serviços.html">Ir para página de serviço</a>
     </div>
   </main>
 
@@ -55,7 +56,7 @@
     </div>
   </footer>
 
-  <script src="../script/scriptcad.js">
+  <script src="../script/scriptped.js">
 
   </script>
 </body>
